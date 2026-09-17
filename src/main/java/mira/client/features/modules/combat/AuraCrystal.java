@@ -163,7 +163,7 @@ public class AuraCrystal extends Module {
                 for (int dy = -1; dy <= 1; dy++) {
                     BlockPos base = center.add(dx, dy, dz);
 
-                    if (mc.player.distanceTo(base.toCenterPos()) > range.getValue() + 2f) continue;
+                    if (mc.player.getPos().distanceTo(base.toCenterPos()) > range.getValue() + 2f) continue;
                     if (!selfSafetyPrefilter(base)) continue;
 
                     BlockPos crystalSpot;
@@ -412,4 +412,5 @@ public class AuraCrystal extends Module {
         WAIT_SPAWN,
         BREAKING
     }
-}
+    }
+    
