@@ -1,0 +1,72 @@
+{
+  "keypress": {
+    "sounds": [
+      "mira:keypress"
+    ]
+  },
+  "keyrelease": {
+    "sounds": [
+      "mira:keyrelease"
+    ]
+  },
+  "disable": {
+    "sounds": [
+      "mira:disable"
+    ]
+  },
+  "enable": {
+    "sounds": [
+      "mira:enable"
+    ]
+  },
+  "skeet": {
+    "sounds": [
+      "mira:skeet"
+    ]
+  },
+  "orthodox": {
+    "sounds": [
+      "mira:orthodox"
+    ]
+  },
+  "boolean": {
+    "sounds": [
+      "mira:boolean"
+    ]
+  },
+  "scroll": {
+    "sounds": [
+      "mira:scroll"
+    ]
+  },
+  "swipein": {
+    "sounds": [
+      "mira:swipein"
+    ]
+  },
+  "swipeout": {
+    "sounds": [
+      "mira:swipeout"
+    ]
+  },
+  "pmsound": {
+    "sounds": [
+      "mira:pmsound"
+    ]
+  },
+  "rifk": {
+    "sounds": [
+      "mira:rifk"
+    ]
+  },
+  "cutie": {
+    "sounds": [
+      "mira:cutie"
+    ]
+  },
+  "wither": {
+    "sounds": [
+      "mira:wither"
+    ]
+  }
+}
