@@ -35,6 +35,7 @@ public class ModuleManager implements IManager {
     public static MaceAura maceAura = new MaceAura();
     public static MaceDive macedive = new MaceDive();
     public static FakeLag fakelag = new FakeLag();
+    public static NoExplosionLag noExplosionLag = new NoExplosionLag();
     public static AutoAnchor autoanchor = new AutoAnchor();
     public static AuraCrystal auracrystal = new AuraCrystal();
     public static ElytraSwapArmor elytraSwapArmor = new ElytraSwapArmor();
