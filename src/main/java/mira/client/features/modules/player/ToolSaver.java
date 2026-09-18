@@ -5,7 +5,7 @@ import mira.client.features.modules.Module;
 import mira.client.setting.Setting;
 
 import static mira.client.features.modules.render.ClientSettings.isRu;
-import static mira.client.features.modules.combat.AutoTotem.findNearestCurrentItem;
+import static mira.client.utility.player.InventoryUtility.findNearestCurrentItem;
 
 public class ToolSaver extends Module {
     public ToolSaver() {
@@ -28,4 +28,4 @@ public class ToolSaver extends Module {
             sendMessage(isRu() ? "Твой инструмент почти сломался!" : "Your tool is almost broken!");
         }
     }
-}
+                              }
