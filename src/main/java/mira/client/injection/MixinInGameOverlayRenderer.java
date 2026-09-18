@@ -14,6 +14,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MixinInGameOverlayRenderer {
     @Inject(method = "renderFireOverlay", at = @At("HEAD"), cancellable = true)
     private static void renderFireOverlayHook(MinecraftClient minecraftClient, MatrixStack matrixStack, CallbackInfo ci) {
+        if (ModuleManager.noExplosionLag.isEnabled() && ModuleManager.noExplosionLag.fireOverlay.getValue())
+            ci.cancel();
         if (ModuleManager.noRender.isEnabled() && ModuleManager.noRender.fireOverlay.getValue())
             ci.cancel();
     }
