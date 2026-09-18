@@ -2,22 +2,16 @@ package mira.client.features.modules.combat;
 
 import meteordevelopment.orbit.EventHandler;
 import net.minecraft.item.Items;
-import net.minecraft.util.Formatting;
-import mira.client.core.manager.client.ModuleManager;
 import mira.client.events.impl.PostPlayerUpdateEvent;
 import mira.client.injection.accesors.IMinecraftClient;
 import mira.client.features.modules.Module;
 import mira.client.setting.Setting;
 import mira.client.utility.Timer;
-import mira.client.utility.player.InventoryUtility;
-
-import static mira.client.features.modules.render.ClientSettings.isRu;
 
 public final class AutoGApple extends Module {
     public final Setting<Integer> Delay = new Setting<>("UseDelay", 0, 0, 2000);
     private final Setting<Float> health = new Setting<>("health", 15f, 1f, 36f);
     public Setting<Boolean> absorption = new Setting<>("Absorption", false);
-    public Setting<Boolean> autoTotemIntegration = new Setting<>("AutoTotemIntegration", true);
 
     private boolean isActive;
     private final Timer useDelay = new Timer();
@@ -47,13 +41,6 @@ public final class AutoGApple extends Module {
     }
 
     private boolean GapInOffHand() {
-        if (autoTotemIntegration.getValue() && ModuleManager.autoTotem.isEnabled() && InventoryUtility.findItemInHotBar(Items.GOLDEN_APPLE, Items.ENCHANTED_GOLDEN_APPLE).found()) {
-            if (!ModuleManager.autoTotem.rcGap.is(AutoTotem.RCGap.Off))
-                return true;
-            else
-                sendMessage(Formatting.RED + (isRu() ? "Включи RcGap в AutoTotem!" : "Enable RcGap in AutoTotem"));
-        }
-
         return !mc.player.getOffHandStack().isEmpty() && (mc.player.getOffHandStack().getItem() == Items.GOLDEN_APPLE || mc.player.getOffHandStack().getItem() == Items.ENCHANTED_GOLDEN_APPLE);
     }
 }
