@@ -15,4 +15,14 @@ public class MixinAbstractBlockState {
             cir.setReturnValue(15);
         }
     }
-}
+
+    @Inject(method = "getRenderType", at = @At("HEAD"), cancellable = true)
+    public void getRenderTypeHook(CallbackInfoReturnable<BlockRenderType> cir) {
+        if (!ModuleManager.noExplosionLag.isEnabled() || !ModuleManager.noExplosionLag.fireBlock.getValue()) return;
+
+        AbstractBlock.AbstractBlockState self = (AbstractBlock.AbstractBlockState) (Object) this;
+        if (self.getBlock() == Blocks.FIRE || self.getBlock() == Blocks.SOUL_FIRE) {
+            cir.setReturnValue(BlockRenderType.INVISIBLE);
+        }
+    }
+    }
