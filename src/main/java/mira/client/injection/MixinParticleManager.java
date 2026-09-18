@@ -7,12 +7,17 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import mira.client.core.manager.client.ModuleManager;
 import mira.client.features.modules.render.NoRender;
+import mira.client.features.modules.render.NoExplosionLag;
 
 @Mixin(ParticleManager.class)
 public class MixinParticleManager {
     @Inject(at = @At("HEAD"), method = "addParticle(Lnet/minecraft/client/particle/Particle;)V", cancellable = true)
     public void addParticleHook(Particle p, CallbackInfo e) {
         NoRender nR = ModuleManager.noRender;
+        NoExplosionLag nEL = ModuleManager.noExplosionLag;
+
+        if (nEL.isEnabled() && nEL.explosions.getValue() && p instanceof ExplosionLargeParticle)
+            e.cancel();
 
         if(!nR.isEnabled())
             return;
@@ -32,4 +37,4 @@ public class MixinParticleManager {
         if (nR.fireworks.getValue() && (p instanceof FireworksSparkParticle.FireworkParticle || p instanceof FireworksSparkParticle.Flash))
             e.cancel();
     }
-}
+    }
