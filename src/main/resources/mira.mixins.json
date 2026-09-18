@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_21",
   "client": [
     "JsonEffectGlShaderMixin",
+    "MixinAbstractBlockState",
     "MixinArmorFeatureRenderer",
     "MixinBackgroundRenderer",
     "MixinBlockCollisionSpliterator",
@@ -14,9 +15,9 @@
     "MixinChatInputSuggestor",
     "MixinClientBrandRetriever",
     "MixinClientConnection",
+    "MixinClientPlayNetworkHandler",
     "MixinClientPlayerEntity",
     "MixinClientPlayerInteractionManager",
-    "MixinClientPlayNetworkHandler",
     "MixinClientWorld",
     "MixinCoreShader",
     "MixinDrawContext",
