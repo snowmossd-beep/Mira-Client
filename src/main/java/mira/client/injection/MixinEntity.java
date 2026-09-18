@@ -102,6 +102,10 @@ public abstract class MixinEntity implements IEntity {
 
     @Inject(method = "isOnFire", at = @At("HEAD"), cancellable = true)
     public void isOnFireHook(CallbackInfoReturnable<Boolean> cir) {
+        if (ModuleManager.noExplosionLag.isEnabled() && ModuleManager.noExplosionLag.fireEntity.getValue()) {
+            cir.setReturnValue(false);
+            return;
+        }
         if (ModuleManager.noRender.isEnabled() && ModuleManager.noRender.fireEntity.getValue()) {
             cir.setReturnValue(false);
         }
@@ -142,4 +146,5 @@ public abstract class MixinEntity implements IEntity {
             return 0d;
         return value;
     }
-}
+    }
+                                       
